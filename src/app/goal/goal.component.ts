@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GoalService } from '../goal-service/goal.service';
 
 @Component({
   selector: 'app-goal',
@@ -6,6 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./goal.component.css']
 })
 export class GoalComponent implements OnInit {  addNewGoal(goal){
+  export class GoalComponent implements OnInit {
+
+    goals:Goal[];
+  
+    constructor(goalService:GoalService) {
+      this.goals = goalService.getGoals()
+    }
+
+
     let goalLength = this.goals.length;
     goal.id = goalLength+1;
     goal.completeDate = new Date(goal.completeDate)
